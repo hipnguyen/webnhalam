@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./source/index.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="body">
-        <h1 class="text">Hello World <br>
-            coming soon !
-        </h1>
-    </div>
-    <script src="./source/index.js"></script>
-</body>
+<html>
+  <head>
+    <title>Đổi màu nền theo thời gian</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-size: 48px;
+        text-align: center;
+        margin: 0;
+        padding: 100px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function() {
+        setInterval(function() {
+          var now = new Date();
+          var hours = now.getHours();
+          var minutes = now.getMinutes();
+          var seconds = now.getSeconds();
+          var color = '#' + hours + minutes + seconds;
+          $('body').css('background-color', color);
+        }, 5000); // thay đổi màu sau mỗi 5 giây
+      });
+    </script>
+    <h1>Đổi màu nền theo thời gian</h1>
+  </body>
 </html>
+
